@@ -1,0 +1,27 @@
+{% extends "master.html" %}
+{% block content %}
+
+<div class="container d-flex card mt-4 p-4">
+    <div class="card m-2">
+        <div class="card-header">
+          OPS-EB
+        </div>
+        <div class="card-body">
+          <h5 class="card-title" dir="rtl" >قاعدة بيانات العمالة</h5>
+          <a href="{% url  'mp_list' %}" class="btn btn-primary">ManPower</a>
+        </div>
+    </div>
+</div>
+<div class="container d-flex card mt-4 p-4">
+    <div class="card m-2">
+        <div class="card-header">
+          OPS-EB
+        </div>
+        <div class="card-body">
+          <h5 class="card-title" dir="rtl" >قاعدة طبيعة العمل</h5>
+          <a href="{% url  'mp_meta' %}" class="btn btn-primary">Meta data</a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

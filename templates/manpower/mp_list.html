@@ -1,0 +1,27 @@
+{% extends "master.html" %}
+{% block content %}
+<div class = "container card br mt-4">
+    <div class = "p-3">
+        <table class="table responsive">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>id</th>
+                    <th>Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in mp_lists|slice:':90' %}
+                    {% with counter=forloop.counter %}
+                    <tr class="dh">
+                        <td><div>{{ counter }}</div></td>
+                        <td><div>{{ row.id }}</div></td>
+                        <td><div>{{ row.first_name }} {{ row.middle_name }} {{ row.last_name }}</div></td>
+                    </tr>
+                    {% endwith %}
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock  %}

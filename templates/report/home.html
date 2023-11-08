@@ -1,0 +1,20 @@
+{% extends "master.html" %}
+{% load static %}
+{% block content %}
+<div class="container br d-flex  card mt-4 p-4">
+    <div class="row justify-content-evenly">
+        {% for project in name %}
+          <div class="card br m-2 dh" style="width: 18rem;">
+            <img src="{{ project.photo.url }}" class="card-img-top br mt-3" alt="">
+            <div class="card-body">
+              <h5 class="card-title">{{ project.project_name }}</h5>
+              <p class="card-text">{{ project.recipient }}</p>
+              <a href="{% url  'project_report' %}" class="btn btn-primary">Open Report</a>
+            </div>
+          </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+{% endblock  %}
