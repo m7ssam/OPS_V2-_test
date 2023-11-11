@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     "home.apps.HomeConfig",
     "project.apps.ProjectConfig",
     "report.apps.ReportConfig",
+    "users.apps.UsersConfig",
     'crispy_forms',
     "crispy_bootstrap5",
 ]
@@ -145,6 +146,6 @@ MEDIA_URL = "media/"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 
-LOGIN_REDIRECT_URL = ''
-LOGOUT_REDIRECT_URL = '/users/login'
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/users/login/'
 

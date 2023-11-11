@@ -6,4 +6,4 @@ class RegisterForm(UserCreationForm):
   id = forms.IntegerField(required=True)
   class Meta:
     model = User
-    fields = ["username", "id", "password1", "password2"]
+    fields = ["id", "password1", "password2"]
