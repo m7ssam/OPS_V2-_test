@@ -3,15 +3,20 @@ from .forms import RegisterForm
 from django.contrib.auth import login, logout, authenticate
 from .models import User_id
 
-def login(request):
-  return render(request, 'registration/login.html')
-
-
 def home(request):
   return render(request, 'home/home.html')
 
 def invalid_user(request):
   return render(request, 'registration/invalid.html')
+
+def created(request):
+  return render(request, 'registration/created.html')
+# def created(request, id):
+#   user = User_id.objects.get(pk = id)
+#   context = {"user":user}
+#   return render(request, 'registration/invalid.html',context)
+
+
 
 def sign_up(request):
     if request.method == "POST":
@@ -28,7 +33,7 @@ def sign_up(request):
                 user.is_active = False
                 user.save()
                 login(request, user)
-                return redirect("users/login/")
+                return redirect("/users/created")
             else:
                 # Redirect the user to the login page
                 return redirect("/users/invalid_user")  # Adjust the actual URL as needed
