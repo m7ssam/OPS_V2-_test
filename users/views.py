@@ -21,7 +21,10 @@ def sign_up(request):
             user_id_input = form.cleaned_data.get("id")
             # Check if the user ID exists in the User_id model
             if User_id.objects.filter(id=user_id_input).exists():
-                user.username = "A"
+                user_record = User_id.objects.get(id=user_id_input)
+                first_name = user_record.first_name
+                last_name = user_record.last_name
+                user.username = f"{first_name} {last_name}"
                 user.is_active = False
                 user.save()
                 login(request, user)
