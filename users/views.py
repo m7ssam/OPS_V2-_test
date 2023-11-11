@@ -2,20 +2,25 @@ from django.shortcuts import redirect, render
 from .forms import RegisterForm
 from django.contrib.auth import login, logout, authenticate
 from .models import User_id
+from django.db import IntegrityError
 
 def home(request):
   return render(request, 'home/home.html')
+
+def password_change(request):
+  return render(request,"registration/password_change.html")
+
+def logout(request):
+  return redirect("/users/logout/")
+
+def dublication(request):
+  return render(request,"registration/dublication.html")
 
 def invalid_user(request):
   return render(request, 'registration/invalid.html')
 
 def created(request):
   return render(request, 'registration/created.html')
-# def created(request, id):
-#   user = User_id.objects.get(pk = id)
-#   context = {"user":user}
-#   return render(request, 'registration/invalid.html',context)
-
 
 
 def sign_up(request):
@@ -29,11 +34,14 @@ def sign_up(request):
                 user_record = User_id.objects.get(id=user_id_input)
                 first_name = user_record.first_name
                 last_name = user_record.last_name
-                user.username = f"{first_name} {last_name}"
-                user.is_active = False
-                user.save()
-                login(request, user)
-                return redirect("/users/created")
+                try:
+                  user.username = f"{first_name}-{last_name}"
+                  user.is_active = False
+                  user.save()
+                  login(request, user)
+                  return redirect("/users/created")
+                except IntegrityError:
+                  return redirect("/users/dublication")
             else:
                 # Redirect the user to the login page
                 return redirect("/users/invalid_user")  # Adjust the actual URL as needed
@@ -41,17 +49,3 @@ def sign_up(request):
         form = RegisterForm()
     return render(request, "registration/sign_up.html", {"form": form})
 
-"""
-def sign_up(request):
-    if request.method == "POST":
-        form = RegisterForm(request.POST)
-        if form.is_valid():
-            user = form.save(commit=False)
-            user.is_active = False
-            user.save()
-            login(request, user)
-            return redirect('users/login/')
-    else:
-        form = RegisterForm()
-    return render(request, "registration/sign_up.html", {"form": form})
-"""

@@ -1,5 +1,5 @@
 {% load static %}
-<nav dir = "ltr" class="navbar navbar-expand-lg container sticky-top mt-3 br">
+<nav dir="ltr" class="navbar navbar-expand-lg container sticky-top mt-3 br">
   <div class="container-fluid">
     <a class="navbar-brand" href="{%url 'home'%}">
       <img
@@ -30,12 +30,7 @@
         <li class="nav-item">
           <a class="nav-link" href="{% url  'project_home' %}">Projects</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{% url  'underconstruction' %}">Equipment</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{% url  'mp_home' %}">Man-Power</a>
-        </li>
+
         <!-- Drop-down -->
         <li class="nav-item dropdown">
           <a
@@ -48,6 +43,14 @@
             More..
           </a>
           <ul class="dropdown-menu">
+            <li>
+              <a class="dropdown-item" href="{% url  'underconstruction' %}"
+                >Equipment</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="{% url  'mp_home' %}">Man-Power</a>
+            </li>
             <li>
               <a class="dropdown-item" href="{% url  'underconstruction' %}"
                 >Main schedule</a
@@ -69,7 +72,9 @@
               >
             </li>
             <li>
-              <a class="dropdown-item" href="{% url  'underconstruction' %}">DCC</a>
+              <a class="dropdown-item" href="{% url  'underconstruction' %}"
+                >DCC</a
+              >
             </li>
             <li>
               <hr class="dropdown-divider" />
@@ -78,27 +83,57 @@
           </ul>
         </li>
       </ul>
-      <form class="d-flex" role="search">
-        <button
-        class="btn btn-outline-danger me-lg-4 me-md-3 me-sm-1"
-        type="submit"
-        >
-        Beta!!
-        </button>
-        <a class="btn btn-outline-none me-3" href="{% url  'login' %}">Login</a>
-        <input
-          class="form-control me-2"
-          type="search"
-          placeholder="Search"
-          aria-label="Search"
-        />
-        <button
-          class="btn btn-outline-primary me-lg-4 me-md-3 me-sm-1"
-          type="submit"
-        >
-          Search
-        </button>
-      </form>
+
+      <!-- space -->
+      <div class="d-flex">
+        <div>
+          {% if user.is_authenticated %}
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 fw-bold">
+            <!-- Drop-down -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="{% url  'underconstruction' %}"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                {{user.username}}
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a
+                    class="btn btn-outline-none me-3"
+                    href="{% url  'logout' %}"
+                    >Logout</a
+                  >
+                </li>
+              </ul>
+            </li>
+          </ul>
+          {% else %}
+          <a class="btn btn-outline-none me-3" href="{% url  'login' %}"
+            >Login</a
+          >
+          {% endif %}
+        </div>
+        <div>
+          <form class="d-flex" role="search">
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
+            <button
+              class="btn btn-outline-primary me-lg-4 me-md-3 me-sm-1"
+              type="submit"
+            >
+              Search
+            </button>
+          </form>
+        </div>
+      </div>
     </div>
   </div>
 </nav>
