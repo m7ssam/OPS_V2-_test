@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import Name
-# Create your views here.
+from django.contrib.auth.decorators import login_required
+@login_required()
 def home(request):
   name = Name.objects.all()
   context = {"name": name}

@@ -3,7 +3,10 @@ from .forms import RegisterForm
 from django.contrib.auth import login, logout, authenticate
 from .models import User_id
 from django.db import IntegrityError
+from django.contrib.auth.decorators import login_required
 
+
+@login_required(login_url="users/login/")
 def home(request):
   return render(request, 'home/home.html')
 
@@ -50,4 +53,3 @@ def sign_up(request):
     else:
         form = RegisterForm()
     return render(request, "registration/sign_up.html", {"form": form})
-
