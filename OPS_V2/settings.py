@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     "users.apps.UsersConfig",
     'crispy_forms',
     "crispy_bootstrap5",
+    "import_export",
 ]
 
 CRISPY_ALLOWED_TEMPLATE_PACK = "bootstrap5"
@@ -150,3 +151,7 @@ LOGIN_URL = '/users/login/'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/users/login/'
 
+# for editing the admin logo later
+JAZZMIN_SETTINGS = {
+    "site_logo": "images/dv.gif",
+}

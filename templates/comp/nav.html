@@ -3,7 +3,11 @@
   <div class="container-fluid">
     <a class="navbar-brand" href="{%url 'home'%}">
       <img
-        src='{% static "images/logo.png" %}'
+        {% if user.first_name == "Hossam" %}
+          src='{% static "images/dv.gif" %}'
+        {% else %}
+          src='{% static "images/logo.png" %}'
+        {% endif %}
         data-bs-title="Home"
         alt="Home"
         width="45"
@@ -58,22 +62,37 @@
             </li>
             <li>
               <a class="dropdown-item" href="{% url  'underconstruction' %}"
-                >Engineering-Report</a
+                >Engineering</a
               >
             </li>
             <li>
               <a class="dropdown-item" href="{% url  'underconstruction' %}"
-                >Procurement-Report</a
+                >Procurement</a
               >
             </li>
             <li>
               <a class="dropdown-item" href="{% url  'underconstruction' %}"
-                >Construction-Report</a
+                >Construction</a
               >
             </li>
             <li>
               <a class="dropdown-item" href="{% url  'underconstruction' %}"
                 >DCC</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="{% url  'underconstruction' %}"
+                >QC</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="{% url  'underconstruction' %}"
+                >Safety</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="{% url  'underconstruction' %}"
+                >Security</a
               >
             </li>
             <li>
