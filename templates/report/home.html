@@ -5,10 +5,12 @@
     <div class="row justify-content-evenly">
         {% for project in name %}
           <div class="card br m-2 dh" style="width: 18rem;">
-            <img src="{{ project.photo.url }}" class="card-img-top br mt-3" alt="">
+            {% comment %} <img src="{{ project.photo.url }}" class="card-img-top br mt-3" alt=""> {% endcomment %}
             <div class="card-body">
-              <h5 class="card-title">{{ project.project_name }}</h5>
-              <p class="card-text">{{ project.recipient }}</p>
+              <div dir = "rtl" class="d-flex">
+                <h5 class="card-title">{{ project.project_name }} |</h5>
+                <p class="card-text"> {{ project.recipient }}</p>
+              </div>
               <a href="{% url  'project_report' %}" class="btn btn-primary">Open Report</a>
             </div>
           </div>

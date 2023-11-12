@@ -394,7 +394,7 @@
                   </div>
                 </div>
                 <a href="#" class="btn btn-primary m-2">الجدول الزمنى</a>
-                <div class="card-footer mb-0 pb-0">
+                <div dir = "ltr" class="card-footer mb-0 pb-0">
                   <small class="text-body-secondary mb-0 pb-0"
                     >Last updated 3 mins ago</small
                   >
@@ -443,7 +443,7 @@
                   disabled
                   >Control Sheet</a
                 >
-                <div class="card-footer mb-0 pb-0">
+                <div dir = "ltr" class="card-footer mb-0 pb-0">
                   <small class="text-body-secondary mb-0 pb-0"
                     >Last updated 14 mins ago</small
                   >
@@ -504,9 +504,9 @@
             </table>
 
             <!-- space -->
-            <div class="card mt-2">
+            <div dir = "ltr" class="card mt-2">
               <ul class="list-group list-group-flush">
-                <li class="list-group-item expand">
+                <li  class="list-group-item expand">
                   <strong
                     >الموازنة معتمدة حتى 31-07-2023 وجاري اعداد موازنة معدلة حيث
                     تم اعتماد فروق اسعار من العميل بتاريخ 05-09-2023.</strong
@@ -515,13 +515,12 @@
                 <li class="list-group-item expand">
                   <strong
                     >تم اعتماد البرنامج الزمني المعدل لينتهي في 30-04-2024 نتيجة
-                    التأخيرات في توريد (مهمات - معدات - أجهزة) مسئولية
-                    العميل.</strong
-                  >
+                    التأخيرات في توريد (مهمات - معدات - أجهزة) مسئولية العميل.
+                  </strong>
                 </li>
                 <li class="list-group-item expand justify">
                   <!-- start accordion -->
-                  <div
+                  <div dir = "rtl"
                     class="accordion accordion-flush m-0 p-0"
                     id="accordionFlushExample"
                   >
@@ -577,6 +576,71 @@
       <!-- second section end -->
       <hr />
       <!-- Page 2 -->
+      <div class="row">
+        <div class="col-sm-6 mb-3 mb-sm-0">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">بيان المعدات
+                <button type="button" class="btn btn-outline-primary">
+                  <i class="fa-solid fa-arrow-left"></i>
+                </button>
+              </h5>
+              <p class="card-text">
+                <table class="table table-hover mb-0">
+                  <thead>
+                    <tr>
+                      <th scope="col">تحريك تربة</th>
+                      <th scope="col">رفع</th>
+                      <th scope="col">خرسانة</th>
+                      <th scope="col">اجمالى</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td data-label="تحريك تربة" >8</td>
+                      <td data-label="رفع">12</td>
+                      <td data-label="خرسانة">6</td>
+                      <td data-label="اجمالى">26</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- بيانات المعدات والعمالة  -->
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">بيان العمالة
+                <button type="button" class="btn btn-outline-primary">
+                  <i class="fa-solid fa-arrow-left"></i>
+                </button>
+              </h5>
+              <p class="card-text">
+                <table class="table table-hover mb-0">
+                  <thead>
+                    <tr>
+                      <th scope="col">فنية</th>
+                      <th scope="col">خدمية</th>
+                      <th scope="col">صيانة</th>
+                      <th scope="col">اجمالى</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td data-label="فنية" >122</td>
+                      <td data-label="خدمية">24</td>
+                      <td data-label="صيانة">36</td>
+                      <td data-label="اجمالى">182</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="mt-3">
         <h3>موقف تقدم الاعمال</h3>
         <table class="table table-hover responsive">
