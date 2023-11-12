@@ -35,7 +35,9 @@ def sign_up(request):
                 first_name = user_record.first_name
                 last_name = user_record.last_name
                 try:
-                  user.username = f"{first_name}-{last_name}"
+                  user.username = user_id_input
+                  user.first_name = first_name
+                  user.last_name = last_name
                   user.is_active = False
                   user.save()
                   login(request, user)
