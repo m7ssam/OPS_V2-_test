@@ -1,22 +1,51 @@
-{% extends "master.html" %}
-{% load static %}
-{% block content %}
-<div class="container br d-flex  card mt-4 p-4">
-    <div class="row justify-content-evenly">
-        {% for project in name %}
-          <div class="card br m-2 dh" style="width: 18rem;">
-            {% comment %} <img src="{{ project.photo.url }}" class="card-img-top br mt-3" alt=""> {% endcomment %}
-            <div class="card-body">
-              <div dir = "rtl" class="d-flex">
-                <h5 class="card-title">{{ project.project_name }} |</h5>
-                <p class="card-text"> {{ project.recipient }}</p>
-              </div>
-              <a href="{% url  'project_report' %}" class="btn btn-primary">Open Report</a>
-            </div>
-          </div>
-        {% endfor %}
+{% extends "master.html" %} {% load static %} {% block content %}
+
+<div class="container br d-flex card mt-4 p-4">
+  <h1 class="text-center bold mt-3 mb-0">
+    برنامج تقارير الفرع الشرقى
+  </h1>
+  <hr />
+  <div class="row justify-content-evenly">
+    <div class="card text-center br m-2" style="width: 18rem">
+      <div class="card-body">
+        <div dir="rtl" class="">
+          <h3 class="card-title">تقارير المشروعات</h3>
+        </div>
+        <a href="{% url  'Project_home' %}" class="btn btn-primary dh"
+          >Projects</a
+        >
+      </div>
     </div>
+    <div class="card text-center br m-2" style="width: 18rem">
+      <div class="card-body">
+        <div dir="rtl" class="">
+          <h3 class="card-title">تقارير الايرادات</h3>
+        </div>
+        <a href="{% url  'Project_home' %}" class="btn btn-primary dh"
+          >Revenue</a
+        >
+      </div>
+    </div>
+    <div class="card text-center br m-2" style="width: 18rem">
+      <div class="card-body">
+        <div dir="rtl" class="">
+          <h3 class="card-title">تقارير المعدات</h3>
+        </div>
+        <a href="{% url  'Project_home' %}" class="btn btn-primary dh"
+          >Equipment</a
+        >
+      </div>
+    </div>
+    <div class="card text-center br m-2" style="width: 18rem">
+      <div class="card-body">
+        <div dir="rtl" class="">
+          <h3 class="card-title">تقارير العمالة</h3>
+        </div>
+        <a href="{% url  'Project_home' %}" class="btn btn-primary dh"
+          >ManPower</a
+        >
+      </div>
+    </div>
+  </div>
 </div>
-
-
-{% endblock  %}
+{% endblock %}

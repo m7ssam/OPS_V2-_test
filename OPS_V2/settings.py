@@ -44,9 +44,11 @@ INSTALLED_APPS = [
     "project.apps.ProjectConfig",
     "report.apps.ReportConfig",
     "users.apps.UsersConfig",
-    'crispy_forms',
+    "crispy_forms",
     "crispy_bootstrap5",
     "import_export",
+    "debug_toolbar",
+
 ]
 
 CRISPY_ALLOWED_TEMPLATE_PACK = "bootstrap5"
@@ -60,6 +62,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
 ]
 
 ROOT_URLCONF = "OPS_V2.urls"
@@ -155,3 +158,8 @@ LOGOUT_REDIRECT_URL = '/users/login/'
 JAZZMIN_SETTINGS = {
     "site_logo": "images/dv.gif",
 }
+
+
+INTERNAL_IPS = [
+    "127.0.0.1",
+]

@@ -94,3 +94,10 @@ value="Login" />
 </form>
 Use code with caution. Learn more
 This should update the user registration form in Django to have an id instead of username. The id must be in an existing model in the users app named User.id.
+
+    <!-- لتغيير مكان الاسهم (يتم نقلة لملف التنسيق فى ال production) -->
+    <!-- .accordion-button:after {
+      order: -1;
+      margin-left: 0;
+      margin-right: 0.5em;
+    } -->
