@@ -1,0 +1,135 @@
+{% extends "master.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% load static %}
+
+<section>
+    <div class="container mt-3 p-3 card br">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="card mb-4">
+                    <div class="card-body text-center">
+                        <img src="{{user.photo.url}}" alt="avatar"
+                        class="rounded-circle img-fluid" style="width: 150px;">
+                        <h3 class="my-3">{{user.first_name}} {{user.last_name}}</h3>
+                        <h4 class="text-muted mb-1">{{user.code}}</h4>
+                        <h4 class="text-muted mb-1">{{user.id}}</h4>
+                        <p class="text-muted mb-4">{{user.gov}}</p>
+                        <div class="d-flex justify-content-center mb-2">
+                            <button type="button" class="btn btn-primary ms-1" disabled>Message</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card mb-4 mb-lg-0">
+                    <div class="card-body p-0">
+                        <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                            <i class="fab fa-facebook-f fa-lg" style="color: #3b5998;"></i>
+                            <a href="http://www.facebook.com/" class="mb-0">@{{user.first_name}}_{{user.last_name}}</a>
+                        </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <p class="mb-0 fs-4">Full Name</p>
+                            </div>
+                            <div dir=auto class="col-sm-9">
+                                <p class="text-muted mb-0 fs-4">{{user.full_name}}</p>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                        <div class="col-sm-3">
+                            <p class="mb-0">Email</p>
+                        </div>
+                        <div class="col-sm-9">
+                            <a href="mailto:n.nabil@petrojet.com.eg"><p class="text-muted mb-0"></p></a>
+                        </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                        <div class="col-sm-3">
+                            <p class="mb-0">Gender</p>
+                        </div>
+                        <div class="col-sm-9">
+                            <p class="text-muted mb-0">{{user.sex}}</p>
+                        </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                        <div class="col-sm-3">
+                            <p class="mb-0">Contract</p>
+                        </div>
+                        <div class="col-sm-9">
+                            <p class="text-muted mb-0">{{user.contract}}</p>
+                        </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                        <div class="col-sm-3">
+                            <p class="mb-0">Address</p>
+                        </div>
+                        <div class="col-sm-9">
+                            <p class="text-muted mb-0">{{user.gov}}</p>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                <div class="col-md-6">
+                    <div class="card mb-4 mb-md-0">
+                        <div class="card-body">
+                            <p class="mb-4"><span class="text-primary font-italic me-1">assigment</span> Project Status
+                            </p>
+                            <div dir = "auto">
+                                <p class="mb-1" style="font-size: 1.5rem;">{{user.full_discription}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card mb-4 mb-md-0">
+                        <div class="card-body">
+                            <p class="mb-4"><span class="text-primary font-italic me-1">History</span> Project Status
+                            </p>
+                            <div dir = "rtl">
+                                <div class="d-flex justify-content-between">
+                                    <p class="mb-1" style="font-size: 1.2rem;">ادارة الفرع الشرقى</p>
+                                    <p class="mb-1" style="font-size: 1.2rem;">01/05/2021</p>
+                                </div>
+                                <div class="progress rounded" style="height: 5px;">
+                                <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="100"
+                                    aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <div class="d-flex justify-content-between mt-4 mb-1">
+                                    <p class="mb-1" style="font-size: 1.2rem;">خط جابكو</p>
+                                    <p class="mb-1" style="font-size: 1.2rem;">01/10/2020</p>
+                                </div>
+                                <div class="progress rounded" style="height: 5px;">
+                                <div class="progress-bar" role="progressbar" style="width: 90%" aria-valuenow="90"
+                                    aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <div class="d-flex justify-content-between mt-4 mb-1">
+                                    <p style="font-size: 1.2rem;">مستودعات عجرود</p>
+                                    <p style="font-size: 1.2rem;">01/01/2020</p>
+                                </div>
+                                <div class="progress rounded" style="height: 5px;">
+                                <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50"
+                                    aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock content %}

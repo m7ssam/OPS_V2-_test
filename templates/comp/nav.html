@@ -123,6 +123,13 @@
                 <li>
                   <a
                     class="btn btn-outline-none me-3"
+                    href="{% url  'user_page' user.username %}"
+                    >Profile</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="btn btn-outline-none me-3"
                     href="{% url  'logout' %}"
                     >Logout</a
                   >

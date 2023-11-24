@@ -1,22 +1,26 @@
 {% extends "master.html" %}
 {% block content %}
-<div class = "container card br mt-4">
+<div class = "container card br mt-4 d-flex overflow-x-auto ">
     <div class = "p-3">
-        <table class="table responsive">
+        <table class="table table-responsive w-auto m-auto ">
             <thead>
                 <tr>
                     <th>#</th>
                     <th>id</th>
-                    <th>Name</th>
+                    <th style=" min-width : 200px">Name</th>
+                    <th style=" min-width : 300px">job</th>
+                    <th>contract</th>
                 </tr>
             </thead>
             <tbody>
-                {% for row in mp_lists|slice:':90' %}
+                {% for row in mp_list|slice:':50' %}
                     {% with counter=forloop.counter %}
                     <tr class="dh">
                         <td><div>{{ counter }}</div></td>
-                        <td><div>{{ row.id }}</div></td>
-                        <td><div>{{ row.first_name }} {{ row.middle_name }} {{ row.last_name }}</div></td>
+                        <td><a href="{% url  'user_page' row.id %}"><div>{{ row.id }}</div></a></td>
+                        <td><strong>{{ row.first_name }} {{ row.middle_name }} {{ row.last_name }}</strong></td>
+                        <td>{{row.full_discription}}</td>
+                        <td>{{row.contract}}</td>
                     </tr>
                     {% endwith %}
                 {% endfor %}

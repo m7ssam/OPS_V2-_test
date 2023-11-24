@@ -7,5 +7,5 @@ class Name(models.Model):
   project_name = models.CharField(max_length=50)
   photo = models.ImageField(upload_to = f'project/%Y/%m/%d/', default = "default.jpg")
   def __str__(self):
-      return self.project_name
+      return f"{self.recipient} | {self.project_name}"
 

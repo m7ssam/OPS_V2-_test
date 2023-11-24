@@ -44,15 +44,18 @@ INSTALLED_APPS = [
     "project.apps.ProjectConfig",
     "report.apps.ReportConfig",
     "users.apps.UsersConfig",
+    "manpower.apps.ManpowerConfig",
     "crispy_forms",
     "crispy_bootstrap5",
     "import_export",
     "debug_toolbar",
+    'simple_history',
 
 ]
 
 CRISPY_ALLOWED_TEMPLATE_PACK = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
+
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -63,6 +66,7 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "debug_toolbar.middleware.DebugToolbarMiddleware",
+    'simple_history.middleware.HistoryRequestMiddleware',
 ]
 
 ROOT_URLCONF = "OPS_V2.urls"
@@ -156,6 +160,8 @@ LOGOUT_REDIRECT_URL = '/users/login/'
 
 # for editing the admin logo later
 JAZZMIN_SETTINGS = {
+    "show_version": False,
+    "copyright": "Hossam Ltd",
     "site_logo": "images/dv.gif",
 }
 

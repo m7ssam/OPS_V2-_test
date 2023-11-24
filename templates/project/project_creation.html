@@ -1,0 +1,21 @@
+{% extends "master.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% load static %}
+<div class="wrappermax">
+    <a href="/">
+    <div class="logo">
+        <img src='{% static "images/logo.png" %}' alt="PetroJet Logo">
+    </div>
+    </a>
+    <div class="text-center mt-4 name">
+        PetroJet
+        <h2>Create a new Project</h2>
+    </div>
+    <form method = "post">
+        {% csrf_token %}
+        {{form|crispy}}
+    <button type="submit" class="btn">Save</button>
+    </form>
+</div>
+{% endblock content %}

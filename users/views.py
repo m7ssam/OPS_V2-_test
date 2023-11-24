@@ -49,7 +49,7 @@ def sign_up(request):
                   return redirect("/users/dublication")
             else:
                 # Redirect the user to the login page
-                return redirect("/users/invalid_user")  # Adjust the actual URL as needed
+                return redirect("/users/invalid_user")  
     else:
         form = RegisterForm()
     return render(request, "registration/sign_up.html", {"form": form})
