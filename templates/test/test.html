@@ -1,0 +1,110 @@
+{% extends "master.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasExampleLabel">Active Control</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <div class="accordion" id="accordionPanelsStayOpenExample">
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                    Filter
+                </button>
+              </h2>
+              <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
+                <div class="accordion-body">
+                  *********Filter
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+                    Add a new recpord
+                </button>
+              </h2>
+              <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse">
+                <div class="accordion-body">
+                  
+                    <form method = "post" action="{% url 'test' %}">
+                        <div class="">
+                            {% csrf_token %}
+                            {{form|crispy}}
+                            <button type="save" name = "save" class="btn btn-primary h-25 d-inline-block mt-4">Save</button>
+                        </div>
+                    </form>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+                  Relocate
+                </button>
+              </h2>
+              <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse">
+                <div class="accordion-body">
+                  *************
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+</div>
+
+<div class="container card br mt-4 p-3  d-flex overflow-x-auto">
+    <h1 class="m-3 text-center">Test Page</h1>
+    <div>
+        <h2 class="text-center"></h2>
+        <div class="d-flex flex-row-reverse mb-2">
+            <a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+                Active Control
+            </a>
+        </div>
+        <div>
+          <form action="{% url 'test' %}" method="post">
+            {% csrf_token %}
+            <table class="table table-responsive table-hover" 
+            id="dt"
+            >
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>id</th>
+                        <th>A</th>
+                        <th>B</th>
+                        <th>C</th>
+                        <th>D</th>
+                        <th>Action</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                      {% for row in t1|slice:':200' %}
+                          {% with counter=forloop.counter %}
+                          <tr class="fs-5">
+                              <td>{{ counter }}</td>
+                              <td>{{ row.id }}</td>
+                              <td>{{ row.a }}</td>
+                              <td>{{ row.b }}</td>
+                              <td>{{ row.c }}</td>
+                              {% with t2_instance=row.t2_set.first %}
+                                <td>{{ t2_instance.d }}</td>
+                              {% endwith %}
+                              <td style="width: 10px;"><button formnovalidate name="edit" class="btn btn-primary" type="edit" value="{{ row.id }}">Edit</button></td>
+                              <td style="width: 10px;"><button formnovalidate name="delete" class="btn btn-danger" type="delete"  value="{{ row.id }}">Delete</button></td>
+                          </tr>
+                          {% endwith %}
+                      {% endfor %}
+                </tbody>
+            </table>
+          </form>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

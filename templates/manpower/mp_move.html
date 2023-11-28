@@ -11,13 +11,14 @@
     <div class="text-center mt-4 name">
         PetroJet
         <h2>نقل عامل</h2>
+        <h4>قم بادخال الرقم المالى وتحديد المشروع المطلوب النقل اليه</h4>
     </div>
     <form method = "post">
         <hr>
         {% csrf_token %}
         {{form|crispy}}
         <hr>
-    <button type="submit" class="btn">Save</button>
+    <button type="submit" class="btn fs-5 fw-semibold">Submit</button>
     </form>
 </div>
 {% endblock content %}

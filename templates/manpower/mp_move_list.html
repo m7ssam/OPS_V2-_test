@@ -1,0 +1,63 @@
+{% extends "master.html" %}
+{% block content %}
+
+<div class = "container card br mt-4 d-flex overflow-x-auto text-center">
+    <h1 class="pt-3">بيان عدم التنفيذ</h1>
+    <div class = "p-3">
+        <div class="d-flex flex-row-reverse mb-2">
+            <a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+                Filter
+            </a>
+        </div>
+        <table class="table table-responsive" 
+            id = "datatable"
+        >
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>id</th>
+                    <th>Name</th>
+                    <th>contract</th>
+                    <th>Title</th>
+                    <th>Actual Job</th>
+                    <th>speciality</th>
+                    <th>department</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+</div>
+<hr>
+<div class="container text-center card br mt-4 d-flex overflow-x-auto">
+
+        <div class = "p-3">
+            <table class="table table-responsive" 
+            id = "datatable"
+            >
+                <thead>
+                    <tr>
+                        <th>transaction</th>
+                        <th>id</th>
+                        <th>recipient</th>
+                        <th>date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in list%}
+                        {% with counter=forloop.counter %}
+                        <tr class="dh fs-5">
+                            <td><div>{{ counter }}</div></td>
+                            <td><a href="{% url  'user_page' row.id %}"><div>{{ row.id }}</div></a></td>
+                        </tr>
+                        {% endwith %}
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+</div>
+
+
+
+{% endblock  %}

@@ -1,26 +1,57 @@
 {% extends "master.html" %}
+{% load crispy_forms_tags %}
 {% block content %}
-<div class = "container card br mt-4 d-flex overflow-x-auto ">
+
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+<div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasExampleLabel">Active Control</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+</div>
+<div class="offcanvas-body">
+    <form method = "get">
+        <hr>
+        {{mp_list_filter.form|crispy}}
+        <hr>
+    <button type="submit" class="btn btn-primary fs-5 fw-semibold">Submit</button>
+    </form>
+    </div>
+</div>
+</div>
+
+<div class = "container card br mt-4 d-flex overflow-x-auto">
     <div class = "p-3">
-        <table class="table table-responsive w-auto m-auto ">
+        <div class="d-flex flex-row-reverse mb-2">
+            <a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+                Filter
+            </a>
+        </div>
+        <table class="table table-responsive" 
+            id = "datatable"
+        >
             <thead>
                 <tr>
                     <th>#</th>
                     <th>id</th>
-                    <th style=" min-width : 200px">Name</th>
-                    <th style=" min-width : 300px">job</th>
+                    <th>Name</th>
                     <th>contract</th>
+                    <th>Title</th>
+                    <th>Actual Job</th>
+                    <th>speciality</th>
+                    <th>department</th>
                 </tr>
             </thead>
             <tbody>
-                {% for row in mp_list|slice:':50' %}
+                {% for row in mp_list|slice:':500' %}
                     {% with counter=forloop.counter %}
-                    <tr class="dh">
+                    <tr class="dh fs-5">
                         <td><div>{{ counter }}</div></td>
                         <td><a href="{% url  'user_page' row.id %}"><div>{{ row.id }}</div></a></td>
                         <td><strong>{{ row.first_name }} {{ row.middle_name }} {{ row.last_name }}</strong></td>
-                        <td>{{row.full_discription}}</td>
                         <td>{{row.contract}}</td>
+                        <td>{{row.code.title}}</td>
+                        <td>{{row.code.job}}</td>
+                        <td>{{row.code.speciality}}</td>
+                        <td>{{row.code.dep}}</td>
                     </tr>
                     {% endwith %}
                 {% endfor %}

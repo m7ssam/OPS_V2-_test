@@ -9,12 +9,12 @@
             <div class="col-lg-4">
                 <div class="card mb-4">
                     <div class="card-body text-center">
-                        <img src="{{user.photo.url}}" alt="avatar"
+                        <img src="{{target_user.photo.url}}" alt="avatar"
                         class="rounded-circle img-fluid" style="width: 150px;">
-                        <h3 class="my-3">{{user.first_name}} {{user.last_name}}</h3>
-                        <h4 class="text-muted mb-1">{{user.code}}</h4>
-                        <h4 class="text-muted mb-1">{{user.id}}</h4>
-                        <p class="text-muted mb-4">{{user.gov}}</p>
+                        <h3 class="my-3">{{target_user.first_name}} {{target_user.last_name}}</h3>
+                        <h4 class="text-muted mb-1">{{target_user.code}}</h4>
+                        <h4 class="text-muted mb-1">{{target_user.id}}</h4>
+                        <p class="text-muted mb-4">{{target_user.gov}}</p>
                         <div class="d-flex justify-content-center mb-2">
                             <button type="button" class="btn btn-primary ms-1" disabled>Message</button>
                         </div>
@@ -24,7 +24,7 @@
                     <div class="card-body p-0">
                         <li class="list-group-item d-flex justify-content-between align-items-center p-3">
                             <i class="fab fa-facebook-f fa-lg" style="color: #3b5998;"></i>
-                            <a href="http://www.facebook.com/" class="mb-0">@{{user.first_name}}_{{user.last_name}}</a>
+                            <a href="http://www.facebook.com/" class="mb-0">@{{target_user.first_name}}_{{target_user.last_name}}</a>
                         </li>
                         </ul>
                     </div>
@@ -38,7 +38,7 @@
                                 <p class="mb-0 fs-4">Full Name</p>
                             </div>
                             <div dir=auto class="col-sm-9">
-                                <p class="text-muted mb-0 fs-4">{{user.full_name}}</p>
+                                <p class="text-muted mb-0 fs-4">{{target_user.full_name}}</p>
                             </div>
                         </div>
                         <hr>
@@ -56,7 +56,7 @@
                             <p class="mb-0">Gender</p>
                         </div>
                         <div class="col-sm-9">
-                            <p class="text-muted mb-0">{{user.sex}}</p>
+                            <p class="text-muted mb-0">{{target_user.sex}}</p>
                         </div>
                         </div>
                         <hr>
@@ -65,7 +65,7 @@
                             <p class="mb-0">Contract</p>
                         </div>
                         <div class="col-sm-9">
-                            <p class="text-muted mb-0">{{user.contract}}</p>
+                            <p class="text-muted mb-0">{{target_user.contract}}</p>
                         </div>
                         </div>
                         <hr>
@@ -74,7 +74,7 @@
                             <p class="mb-0">Address</p>
                         </div>
                         <div class="col-sm-9">
-                            <p class="text-muted mb-0">{{user.gov}}</p>
+                            <p class="text-muted mb-0">{{target_user.gov}}</p>
                         </div>
                         </div>
                     </div>
@@ -86,7 +86,7 @@
                             <p class="mb-4"><span class="text-primary font-italic me-1">assigment</span> Project Status
                             </p>
                             <div dir = "auto">
-                                <p class="mb-1" style="font-size: 1.5rem;">{{user.full_discription}}</p>
+                                <p class="mb-1" style="font-size: 1.5rem;">{{target_user.full_discription}}</p>
                             </div>
                         </div>
                     </div>

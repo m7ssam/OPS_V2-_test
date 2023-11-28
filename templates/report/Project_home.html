@@ -2,16 +2,16 @@
 {% load static %}
 {% block content %}
 <div class="container br d-flex  card mt-4 p-4">
-    <div class="row justify-content-evenly">
+    <div class="row justify-content-evenly" >
         {% for project in name %}
-          <div class="card br m-2 dh" style="width: 18rem;">
+          <div class="card br m-2 dh card text-center mb-3" style="width: 18rem;">
             {% comment %} <img src="{{ project.photo.url }}" class="card-img-top br mt-3" alt=""> {% endcomment %}
             <div class="card-body">
-              <div dir = "rtl" class="d-flex">
-                <h5 class="card-title">{{ project.project_name }} |</h5>
+              <div dir = "auto" class="d-flex justify-content-between">
+                <h5 class="card-title">{{ project.project_name }}</h5>
                 <p class="card-text"> {{ project.recipient }}</p>
               </div>
-              <a href="{% url  'project_report' %}" class="btn btn-primary">Open Report</a>
+              <a href="{% url  'project_report' %}" class="btn btn-primary mt-3">Open Report</a>
             </div>
           </div>
         {% endfor %}

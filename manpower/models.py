@@ -2,6 +2,7 @@ from django.db import models
 from project.models import Name
 from simple_history.models import HistoricalRecords
 from master.models import Department, Governorate
+from dbview.models import DbView
 
 
 class Job_type(models.Model):
@@ -56,8 +57,8 @@ class Mp_list(models.Model):
   hire = models.DateField(auto_now=False, auto_now_add=False)
   birth = models.DateField(auto_now=False, auto_now_add=False)
   c_sex = [
-        ('m', 'male'),
-        ('f', 'female'),
+        ('male', 'male'),
+        ('female', 'female'),
   ]
   sex = models.CharField(max_length=10, choices=c_sex)
   contract = models.ForeignKey(Contract,on_delete=models.CASCADE)
@@ -71,7 +72,7 @@ class Mp_list(models.Model):
   search_fields = ['id','first_name','last_name']
   list_filter = []
   class Meta:
-    ordering = ['-id']
+    ordering = ['id']
   def __str__(self):
       return f"{self.id} | {self.first_name}  {self.last_name}"
 
@@ -88,3 +89,6 @@ class Mp_history(models.Model):
     date = models.DateTimeField(auto_now_add=True)
     def __str__(self):
       return self.transaction
+    
+
+

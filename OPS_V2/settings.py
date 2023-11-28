@@ -50,6 +50,8 @@ INSTALLED_APPS = [
     "import_export",
     "debug_toolbar",
     'simple_history',
+    'django_filters',
+    'tester',
 
 ]
 

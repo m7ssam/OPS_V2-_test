@@ -1,7 +1,13 @@
 {% load static %}
 <nav dir="ltr" class="navbar navbar-expand-lg container sticky-top mt-3 br">
   <div class="container-fluid">
-    <a class="navbar-brand" href="{%url 'home'%}">
+    <a class="navbar-brand" 
+
+    {% if user.first_name == "Hossam" %}
+    href="{%url 'test'%}">
+    {% else %}
+    href="{%url 'home'%}">
+    {% endif %}
       <img
         {% if user.first_name == "Hossam" %}
           src='{% static "images/dv.gif" %}'
@@ -144,15 +150,15 @@
           {% endif %}
         </div>
         <div>
-          <form class="d-flex" role="search">
+          <form class="d-flex" role="search" >
             <input
               class="form-control me-2"
               type="search"
-              placeholder="Search"
+              placeholder="Beta V2.5"
               aria-label="Search"
             />
             <button
-              class="btn btn-outline-primary me-lg-4 me-md-3 me-sm-1"
+              class="btn btn-outline-primary me-lg-4 me-md-3 me-sm-1" disabled
               type="submit"
             >
               Search
