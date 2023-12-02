@@ -30,7 +30,7 @@
               <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse">
                 <div class="accordion-body">
                   
-                    <form method = "post" action="{% url 'test' %}">
+                    <form method = "post" action="{% url 't1' %}">
                         <div class="">
                             {% csrf_token %}
                             {{form|crispy}}
@@ -57,7 +57,7 @@
 </div>
 
 <div class="container card br mt-4 p-3  d-flex overflow-x-auto">
-    <h1 class="m-3 text-center">Test Page</h1>
+    <h1 class="m-3 text-center">Test #1 Table</h1>
     <div>
         <h2 class="text-center"></h2>
         <div class="d-flex flex-row-reverse mb-2">
@@ -66,7 +66,7 @@
             </a>
         </div>
         <div>
-          <form action="{% url 'test' %}" method="post">
+          <form action="{% url 't1' %}" method="post">
             {% csrf_token %}
             <table class="table table-responsive table-hover" 
             id="dt"
