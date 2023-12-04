@@ -1,0 +1,22 @@
+{% extends "master.html" %} {% load crispy_forms_tags %} {% block content %}
+
+<div class="container card br mt-4 p-3 d-flex overflow-x-auto">
+  <h1 class="m-3 text-center">Test #3 ExampleModel</h1>
+  {% if blog_posts %}
+  <ul>
+    {% for blog_post in blog_posts %}
+    <li>
+      <h2>{{ blog_post.title }}</h2>
+      <p>Author: {{ blog_post.author.username }}</p>
+      <p>Published on: {{ blog_post.pub_date }}</p>
+      <p>Content: {{ blog_post.content }}</p>
+      <!-- Add more attributes as needed -->
+    </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+  <p>No blog posts available.</p>
+  {% endif %}
+</div>
+
+{% endblock content %}

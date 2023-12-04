@@ -1,0 +1,30 @@
+{% extends "master.html" %} {% load crispy_forms_tags %} {% block content %}
+
+<div class="container card br mt-4 p-3 d-flex overflow-x-auto">
+  <h1 class="m-3 text-center">
+    Test #2 <br />
+    Class based Detail
+  </h1>
+  <h2>
+    <a href="https://ccbv.co.uk/" target="_blank" class="btn btn-primary"
+      >Helper</a
+    >
+  </h2>
+  <div class="p-3">
+    <div class="card text-center">
+      <div class="card-header">
+        Object Detail
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">{{object.title}}</h5>
+        <p class="card-text">{{object.content}}</p>
+        <a href="{% url 'post_list' %}" class="btn btn-primary">Go Back</a>
+      </div>
+      <div class="card-footer text-body-secondary">
+        {{object.created_at|timesince}}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

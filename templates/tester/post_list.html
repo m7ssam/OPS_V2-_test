@@ -1,0 +1,63 @@
+{% extends "master.html" %} {% load crispy_forms_tags %} {% block content %}
+
+<div class="container card br mt-4 p-3 d-flex overflow-x-auto">
+  <h1 class="m-3 text-center">
+    Test #2 <br />
+    Class based List
+  </h1>
+  <h2>
+    <a href="https://ccbv.co.uk/" target="_blank" class="btn btn-primary"
+      >Helper</a
+    >
+  </h2>
+  <p>{{passed_data}}</p>
+  <p>counter : {{counter}}</p>
+  <table class="table table-responsive table-hover" id="dt">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>id</th>
+        <th>Title</th>
+        <th>Content</th>
+        <th>Created at</th>
+        <th>Action</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for row in post_list|slice:':200' %} {% with counter=forloop.counter %}
+      <tr class="fs-5">
+        <td>{{ counter }}</td>
+        <td>{{ row.id }}</td>
+        <td><a href="post_list/{{row.id}}">{{ row.title }}</a></td>
+        <td class="text-start">{{ row.content }}</td>
+        <td class="text-start">{{ row.created_at }}</td>
+        <td style="width: 10px">
+          <button
+            formnovalidate
+            name="edit"
+            class="btn btn-primary"
+            type="edit"
+            value="{{ row.id }}"
+          >
+            Edit
+          </button>
+        </td>
+        <td style="width: 10px">
+          <button
+            formnovalidate
+            name="delete"
+            class="btn btn-danger"
+            type="delete"
+            value="{{ row.id }}"
+          >
+            Delete
+          </button>
+        </td>
+      </tr>
+      {% endwith %} {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+{% endblock content %}

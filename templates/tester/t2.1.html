@@ -1,0 +1,35 @@
+{% extends "master.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+
+<div class="container card br mt-4 p-3  d-flex overflow-x-auto">
+    <h1 class="m-3 text-center">Test #2 Class based view detail</h1>
+    <table class="table table-responsive table-hover" 
+    id="dt"
+    >
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>Title</th>
+                <th>Content</th>
+                <th>Created at</th>
+                <th>Action</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+                  <tr class="fs-5">
+                      <td>{{ id }}</td>
+                      <td>{{ title }}</td>
+                      <td class="text-start">{{ content }}</td>
+                      <td class="text-start">{{ created_at }}</td>
+                      <td style="width: 10px;"><button formnovalidate name="edit" class="btn btn-primary" type="edit" value="{{ id }}">Edit</button></td>
+                      <td style="width: 10px;"><button formnovalidate name="delete" class="btn btn-danger" type="delete"  value="{{ id }}">Delete</button></td>
+                  </tr>
+        </tbody>
+    </table>
+
+</div>
+
+{% endblock content %}

@@ -1,0 +1,48 @@
+{% extends "master.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+
+<div class="container br d-flex card mt-4 p-4">
+    <h1 class="m-3 text-center">Test Page</h1>
+    <div class="row justify-content-evenly"> 
+        <div class="card text-center br m-2 p-0" style="width: 18rem">
+            <div class="card-body">
+            <div dir="rtl" class="">
+                <h3 class="card-title">Test #1</h3>
+                <h3 class="card-title">Table</h3>
+            </div>
+            <a href="{% url  't1' %}" class="btn btn-primary"
+                >Open</a
+            >
+            </div>
+        </div>
+        <!-- -------- -->
+        <div class="card text-center br m-2" style="width: 18rem">
+            <div class="card-body">
+                <div dir="rtl" class="">
+                    <h3 class="card-title">Test #2</h3>
+                    <h3 class="card-title">CBV</h3>
+                </div>
+                <a href="{% url  'post_list' %}" class="btn btn-primary"
+                >Open</a
+                >
+            </div>
+        </div>
+        <!-- -------- -->
+        <div class="card text-center br m-2" style="width: 18rem">
+            <div class="card-body">
+            <div dir="rtl" class="">
+                <h3 class="card-title">Test #3</h3>
+                <h3 class="card-title">ExampleModel</h3>
+            </div>
+            <a href="{% url  't3' %}" class="btn btn-primary"
+                >Open</a
+            >
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}

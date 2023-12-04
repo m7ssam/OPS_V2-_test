@@ -11,3 +11,14 @@ class T1_import_export(ImportExportModelAdmin,admin.ModelAdmin):
 class T2_import_export(ImportExportModelAdmin,admin.ModelAdmin):
   list_display = T2.displayfields
   search_fields = T2.search_fields
+
+@admin.register(Post)
+class Post_import_export(ImportExportModelAdmin,admin.ModelAdmin):
+  list_display = Post.displayfields
+  search_fields = Post.search_fields
+
+
+@admin.register(ExampleModel)
+class ExampleModel_import_export(ImportExportModelAdmin,admin.ModelAdmin):
+  list_display = ExampleModel.displayfields
+  search_fields = ExampleModel.search_fields
