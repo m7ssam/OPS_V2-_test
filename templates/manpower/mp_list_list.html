@@ -10,7 +10,7 @@
 <div class="offcanvas-body">
     <form method = "get">
         <hr>
-        {{mp_list_filter.form|crispy}}
+        {{object_filter.form|crispy}}
         <hr>
     <button type="submit" class="btn btn-primary fs-5 fw-semibold">Submit</button>
     </form>
@@ -19,21 +19,14 @@
 </div>
 
 <div class = "container card br mt-4 d-flex overflow-x-auto">
-        <!-- head s-->
-        <h1 class="text-center bold mt-3 mb-0">
-            قائمة العاملين بالشركة
-          </h1>
-          <hr>
-          <h5 class="text-center bold">يتم اظهار 500 اسم فقط نظراً لكبر حجم قاعدة البيانات</h5>
-          <h6 class="text-center bold">استخدم الفلتر لاظهار نتائج اكثر دقة</h6>
-          <h6 class="text-center bold">اضغط على الرقم المالى لاظهار بيانات العامل</h6>
-          <!-- head f-->
     <div class = "p-3">
         <div class="d-flex flex-row-reverse mb-2">
             <a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
                 Filter
             </a>
         </div>
+        <hr>
+        <h3>{{counter}}</h3>
         <table class="table table-responsive" 
             id = "dt"
         >
@@ -50,7 +43,7 @@
                 </tr>
             </thead>
             <tbody>
-                {% for row in mp_list|slice:':500' %}
+                {% for row in mp_list_list %}
                     {% with counter=forloop.counter %}
                     <tr class="dh fs-5">
                         <td><div>{{ counter }}</div></td>

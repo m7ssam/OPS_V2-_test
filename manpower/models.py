@@ -83,12 +83,12 @@ class Mp_Location(models.Model):
       return f"{self.id} | {self.recipient}"
 
 class Mp_history(models.Model):
-    transaction = models.BigIntegerField(primary_key=True)
+    transaction = models.AutoField(primary_key=True)
     id = models.CharField(max_length=7)
-    recipient = models.CharField(max_length=7)
+    recipient = models.ForeignKey( Name, on_delete=models.CASCADE)
     date = models.DateTimeField(auto_now_add=True)
     def __str__(self):
-      return self.transaction
+      return f"{self.transaction} | {self.id} | {self.recipient}"
     
 
 

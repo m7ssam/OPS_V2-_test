@@ -1,0 +1,42 @@
+{% extends "master.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+
+<div class = "container card br mt-4 d-flex overflow-x-auto">
+    <div class = "p-3">
+        <!-- head s-->
+        <h1 class="text-center bold mt-3 mb-0">
+        بيان عدم التنفيذ
+        </h1>
+        <h3 class="text-center bold">يظهر بيانات العمال اللتى تم عمل قرار نقل لهم ولم يتم التنفيذ</h3>
+        <!-- head f-->
+        <table class="table table-responsive" 
+            id = "dt"
+        >
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>transaction</th>
+                    <th>id</th>
+                    <th>Recipient</th>
+                    <th>date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in mp_history_list %}
+                    {% with counter=forloop.counter %}
+                    <tr class="dh fs-5">
+                        <td><div>{{ counter }}</div></td>
+                        <td>{{row.transaction}}</td>
+                        <td>{{row.id}}</td>
+                        <td>{{row.recipient}}</td>
+                        <td>{{row.date}}</td>
+                    </tr>
+                    {% endwith %}
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock  %}

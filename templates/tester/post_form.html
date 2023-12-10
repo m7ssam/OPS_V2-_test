@@ -1,0 +1,28 @@
+{% extends "master.html" %} {% load crispy_forms_tags %} {% block content %}
+
+<div class="container card br mt-4 p-3 d-flex overflow-x-auto">
+  <h1 class="m-3 text-center">
+    Test #2 <br />
+    {% if not form.instance.pk %}
+      Class based Create Post
+    {% else %}
+      Class based Update Post
+    {% endif %}
+  </h1>
+  <h2>
+    <a href="https://ccbv.co.uk/" target="_blank" class="btn btn-primary"
+      >Helper</a
+    >
+  </h2>
+  <div>
+    <form method = "post">
+      <hr>
+      {% csrf_token %}
+      {{form|crispy}}
+      <hr>
+    <button type="submit" class="btn btn-primary fs-5 fw-semibold">Submit</button>
+    </form>
+  </div>
+</div>
+
+{% endblock content %}

@@ -1,9 +1,17 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+from pyparsing import Any
 from .models import Mp_list, Mp_history
 from .forms import Mp_move
 from .filters import Mp_list_Filter
 from django.db import IntegrityError
+from django.views.generic import ListView, DetailView, CreateView, DeleteView, UpdateView
+from django.db.models.query import QuerySet
+
+
+
+class Mp_history_view(ListView):
+   model = Mp_history
 
 @login_required()
 def mp_list(request):
@@ -15,6 +23,19 @@ def mp_list(request):
      "mp_list_filter": mp_list_filter,
               }
   return render(request, 'manpower/mp_list.html',context )
+
+class MpList(ListView):
+  model = Mp_list
+  def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
+    context = super().get_context_data(**kwargs)
+    counter = Mp_list.objects.count()
+    context['counter'] = counter
+    return context
+  # def get_queryset(self,filter) -> QuerySet[Any]:
+  #   return Mp_list.objects.filter(title = filter) 
+  ordering = ["-id"]
+  paginate_by = 200
+
 
 @login_required()
 def mp_move_list(request):
@@ -53,7 +74,7 @@ def mp_move(request):
           if Mp_list.objects.filter(id=id_input).exists():
               try:
                 change.save()
-                return redirect("mp_home")
+                return redirect("created")
               except IntegrityError:
                 return redirect("error")
           else:
@@ -64,3 +85,6 @@ def mp_move(request):
   context = {"form": form}
   return render(request, 'manpower/mp_move.html',context)
 
+@login_required()
+def created(request):
+  return render(request, 'manpower/created.html')

@@ -13,6 +13,16 @@ def Project_home(request):
   return render(request, 'report/Project_home.html',context )
 
 @login_required()
+def Revenue_home(request):
+  context = None
+  return render(request, 'report/Revenue_home.html',context )
+
+@login_required()
+def Eqp_home(request):
+  context = None
+  return render(request, 'report/Eqp_home.html',context )
+
+@login_required()
 def report(request):
   return render(request, 'report/project_report.html' )
 

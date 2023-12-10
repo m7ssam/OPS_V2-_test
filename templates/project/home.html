@@ -2,11 +2,19 @@
 {% load static %}
 {% block content %}
 
+
 <div class="container br d-flex  card mt-4 p-4">
   <div class="row justify-content-evenly">
     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-      <a href="{% url  'create_project' %}"> <button class="btn btn-primary me-md-2 btn-md" type="button">Create New Project</button></a>
-      <button class="btn btn-primary btn-md" type="button">Edit Project</button>
+      <button type="button" class="btn btn-secondary"
+        data-bs-toggle="popover" data-bs-placement="left"
+        data-bs-custom-class="custom-popover"
+        data-bs-title="Alert !"
+        data-bs-content="Only the admin can create new Project.">
+        Create New Project
+      </button>
+      {% comment %} <a href="{% url  'create_project' %}"> <button class="btn btn-primary me-md-2 btn-md" type="button">Create New Project</button></a> {% endcomment %}
+      <button class="btn btn-secondary btn-md disabled" type="button">Edit Project</button>
     </div>
   </div>
 </div>
@@ -24,6 +32,5 @@
         {% endfor %}
     </div>
 </div>
-
 
 {% endblock  %}

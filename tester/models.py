@@ -1,4 +1,4 @@
-from audioop import reverse
+from django.urls import reverse
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
@@ -40,7 +40,7 @@ class Post(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse("Post_detail", kwargs={"pk": self.pk})
+        return reverse("post_detail", kwargs={"pk": self.pk})
 
   
 

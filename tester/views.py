@@ -1,6 +1,8 @@
 from typing import Any
 from django.db.models.query import QuerySet
+from django.http import Http404
 from django.shortcuts import redirect, render
+from django.urls import reverse_lazy
 from .forms import T1Form
 from django.contrib.auth import login, logout, authenticate
 from .models import T1, Post,  ExampleModel
@@ -66,13 +68,41 @@ class PostDetail(DetailView):
   
 
 class PostCreate(CreateView):
-  pass
-
-class PostDelete(DeleteView):
-  pass
+  fields = ("title" , "content")
+  model =Post
 
 class PostUpdate(UpdateView):
-  pass
+  fields = ("title" , "content")
+  model =Post
+  def get_object(self, queryset=None):
+    try:
+        # Try to get the object based on the pk
+        return super().get_object(queryset=queryset)
+    except Http404:
+        # If the object is not found, raise Http404 exception
+        raise Http404("Post does not exist")
+
+  def get(self, request, *args, **kwargs):
+      try:
+          # Try to get the object based on the pk
+          return super().get(request, *args, **kwargs)
+      except Http404:
+          # If the object is not found, redirect to a custom 404 page
+          return render(request, '404.html', status=404)
+
+  def post(self, request, *args, **kwargs):
+      try:
+          # Try to get the object based on the pk
+          return super().post(request, *args, **kwargs)
+      except Http404:
+          # If the object is not found, redirect to a custom 404 page
+          return render(request, '404.html', status=404)
+
+
+class PostDelete(DeleteView):
+  model =Post
+  success_url = reverse_lazy("post_list")
+
 
 
 """

@@ -33,26 +33,28 @@
         <td class="text-start">{{ row.content }}</td>
         <td class="text-start">{{ row.created_at }}</td>
         <td style="width: 10px">
-          <button
+          <a
             formnovalidate
             name="edit"
             class="btn btn-primary"
             type="edit"
             value="{{ row.id }}"
+            href="{% url 'post_update' pk=row.id %}"
           >
             Edit
-          </button>
+          </a>
         </td>
         <td style="width: 10px">
-          <button
+          <a
             formnovalidate
             name="delete"
             class="btn btn-danger"
             type="delete"
             value="{{ row.id }}"
+            href="{% url 'post_delete' pk=row.id %}"
           >
             Delete
-          </button>
+          </a>
         </td>
       </tr>
       {% endwith %} {% endfor %}

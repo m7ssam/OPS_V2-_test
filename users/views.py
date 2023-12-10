@@ -41,7 +41,7 @@ def sign_up(request):
                   user.username = user_id_input
                   user.first_name = first_name
                   user.last_name = last_name
-                  user.is_active = False
+                  user.is_active = True
                   user.save()
                   login(request, user)
                   return redirect("/users/created")
